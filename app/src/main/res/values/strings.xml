@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">ShareBy</string>
+
+    <string name="nav_open">Open Navigation Drawer</string>
+    <string name="nav_close">Close Navigation Drawer</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="pref_lat">lat</string>
+    <string name="pref_lng">lng</string>
+    <string name="pref_old_lat">old_lat</string>
+    <string name="pref_old_lng">old_lng</string>
+    <string name="pref_country">country</string>
+    <string name="pref_pin">pin</string>
+    <string name="pref_key1">key1</string>
+    <string name="pref_key2">key2</string>
+    <string name="new_user_applause">Cheers Everyone!!!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_pick_location">Pick Location</string>
+
+    <string-array name="post_category_list">
+        <item>Select from here</item>
+        <item>Ask a Question</item>
+        <item>Request an Item</item>
+    </string-array>
+
+</resources>

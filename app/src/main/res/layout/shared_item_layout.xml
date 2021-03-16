@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        android:layout_margin="3dp"
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="7dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/offering_user_profile"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="5dp"
+                android:src="@drawable/sign"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:id="@+id/offering_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/offering_user_profile"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@id/timestamp_dashboard"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:gravity="top"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:paddingTop="5dp"
+                android:text="username"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/timestamp_dashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:textStyle="italic"
+                android:maxLines="1"
+                android:gravity="top"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:paddingTop="5dp"
+                android:text="1 hr ago"
+                android:textSize="13sp" />
+
+
+            <TextView
+                android:id="@+id/offered_to_para"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/offering_user_profile"
+                android:layout_below="@id/offering_user"
+                android:maxLines="3"
+                android:paddingBottom="3dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:paddingTop="5dp"
+                android:text=" shared a/an item to user2"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

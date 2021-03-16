@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.PendingRequestsFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/my_chat_message_bg"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Pending Requests"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/pending_refresh">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/pending_requests_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="10dp"></androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                <!--<com.google.android.gms.ads.AdView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/pending_ad"-->
+                <!--android:layout_gravity="bottom"-->
+                <!--ads:adSize="BANNER"-->
+                <!--ads:adUnitId="ca-app-pub-7619421557353367/2078181853">-->
+                <!--</com.google.android.gms.ads.AdView>-->
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+
+</LinearLayout>

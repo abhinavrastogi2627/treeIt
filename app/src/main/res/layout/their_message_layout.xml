@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="5dp"
+    android:paddingLeft="7dp"
+    android:paddingRight="60dp"
+    android:clipToPadding="false">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/their_avatar"
+        android:layout_alignParentLeft="true"
+        android:layout_width="34dp"
+        android:layout_height="34dp" />
+
+    <TextView
+        android:id="@+id/their_name"
+        android:layout_marginLeft="7dp"
+        android:layout_toRightOf="@+id/their_avatar"
+        android:layout_alignTop="@+id/their_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="3dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+        android:id="@+id/their_message_body"
+        android:layout_below="@+id/their_name"
+        android:layout_alignLeft="@+id/their_name"
+        android:background="@drawable/their_message"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="15dp"
+        android:elevation="2dp"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:id="@+id/their_message_timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/their_message_body"
+        android:padding="3dp"
+        android:textSize="12sp"
+        android:layout_alignLeft="@id/their_message_body"/>
+</RelativeLayout>

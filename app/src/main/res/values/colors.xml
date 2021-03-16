@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="dividerColor">#A9A9A9</color>
+    <color name="sendButton">#004C00</color>
+    <color name="primary_material_light" tools:override="true">#4b49d3</color>
+    <color name="primary_dark_material_light" tools:override="true">#64bdcf</color>
+    <color name="background_material_light" tools:override="true">#FFFFFF</color>
+    <color name="delete_button_bg">#EEEAEA</color>
+    <color name="my_chat_message_bg">#48B3FF</color>
+    <color name="green">#0b0</color>
+    <color name="red">#FF0000</color>
+    <color name="yellow">#feefc3</color>
+    <color name="white" tools:override="true">#FFFFFF</color>
+</resources>
