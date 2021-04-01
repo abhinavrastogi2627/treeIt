@@ -25,12 +25,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.rozdoum.socialcomponents.R;
 import com.rozdoum.socialcomponents.main.main.MainActivity;
 import com.rozdoum.socialcomponents.main.post.BaseCreatePostActivity;
 import com.rozdoum.socialcomponents.managers.PostManager;
 import com.rozdoum.socialcomponents.model.Post;
-import com.rozdoum.socialcomponents.utils.GlideApp;
+//import com.rozdoum.socialcomponents.utils.GlideApp;
 
 public class EditPostActivity extends BaseCreatePostActivity<EditPostView, EditPostPresenter> implements EditPostView {
     private static final String TAG = EditPostActivity.class.getSimpleName();
@@ -83,7 +84,7 @@ public class EditPostActivity extends BaseCreatePostActivity<EditPostView, EditP
     }
 
     private void loadPostDetailsImage(String imageTitle) {
-        PostManager.getInstance(this.getApplicationContext()).loadImageMediumSize(GlideApp.with(this),
+        PostManager.getInstance(this.getApplicationContext()).loadImageMediumSize(Glide.with(this),
                 imageTitle,
                 imageView,
                 () -> progressBar.setVisibility(View.GONE));

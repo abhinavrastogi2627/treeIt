@@ -29,6 +29,6 @@
         app:titleTextColor="@android:color/white"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:background="@color/dart_transparent"></androidx.appcompat.widget.Toolbar>
+        android:background="@color/dart_transparent" />
 
 </FrameLayout>
