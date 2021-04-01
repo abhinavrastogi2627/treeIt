@@ -16,7 +16,7 @@
 
 package com.rozdoum.socialcomponents.main.usersList;
 
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
 import com.rozdoum.socialcomponents.main.base.BaseView;
 

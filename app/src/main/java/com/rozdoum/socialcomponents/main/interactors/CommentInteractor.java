@@ -22,6 +22,7 @@ import android.content.Context;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +30,7 @@ import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 import com.rozdoum.socialcomponents.ApplicationHelper;
+import com.rozdoum.socialcomponents.Constants;
 import com.rozdoum.socialcomponents.managers.DatabaseHelper;
 import com.rozdoum.socialcomponents.managers.listeners.OnDataChangedListener;
 import com.rozdoum.socialcomponents.managers.listeners.OnTaskCompleteListener;
@@ -153,7 +155,7 @@ public class CommentInteractor {
     }
 
     public void removeComment(String commentId, final String postId, final OnTaskCompleteListener onTaskCompleteListener) {
-        DatabaseReference reference = databaseHelper
+       DatabaseReference reference = databaseHelper
                 .getDatabaseReference()
                 .child(DatabaseHelper.POST_COMMENTS_DB_KEY)
                 .child(postId)

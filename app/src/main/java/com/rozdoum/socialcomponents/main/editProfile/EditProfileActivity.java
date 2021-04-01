@@ -20,8 +20,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,13 +30,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.rozdoum.socialcomponents.R;
 import com.rozdoum.socialcomponents.main.pickImageBase.PickImageActivity;
-import com.rozdoum.socialcomponents.utils.GlideApp;
+///import com.rozdoum.socialcomponents.utils.GlideApp;
 import com.rozdoum.socialcomponents.utils.ImageUtil;
 
 public class EditProfileActivity<V extends EditProfileView, P extends EditProfilePresenter<V>> extends PickImageActivity<V, P> implements EditProfileView {
@@ -107,7 +108,7 @@ public class EditProfileActivity<V extends EditProfileView, P extends EditProfil
 
     @Override
     public void setProfilePhoto(String photoUrl) {
-        ImageUtil.loadImage(GlideApp.with(this), photoUrl, imageView, new RequestListener<Drawable>() {
+        Glide.with(this).load(photoUrl).listener(new RequestListener<Drawable>() {
             @Override
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                 avatarProgressBar.setVisibility(View.GONE);
@@ -119,7 +120,7 @@ public class EditProfileActivity<V extends EditProfileView, P extends EditProfil
                 avatarProgressBar.setVisibility(View.GONE);
                 return false;
             }
-        });
+        }).into(imageView);
     }
 
     @Override

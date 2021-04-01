@@ -17,7 +17,7 @@
 package com.rozdoum.socialcomponents.main.editProfile.createProfile;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;

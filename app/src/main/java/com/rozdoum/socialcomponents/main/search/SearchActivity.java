@@ -19,15 +19,16 @@ package com.rozdoum.socialcomponents.main.search;
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+//import android.support.design.widget.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.android.material.tabs.TabLayout;
 import com.rozdoum.socialcomponents.R;
 import com.rozdoum.socialcomponents.adapters.viewPager.TabsPagerAdapter;
 import com.rozdoum.socialcomponents.main.base.BaseActivity;
@@ -44,7 +45,7 @@ public class SearchActivity extends BaseActivity<SearchView, SearchPresenter> im
     private TabsPagerAdapter tabsAdapter;
     private ViewPager viewPager;
     private TabLayout tabLayout;
-    private android.support.v7.widget.SearchView searchView;
+    private androidx.appcompat.widget.SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,13 +118,13 @@ public class SearchActivity extends BaseActivity<SearchView, SearchPresenter> im
     private void initSearch(MenuItem searchMenuItem) {
         // Associate searchable configuration with the SearchView
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView = (android.support.v7.widget.SearchView) searchMenuItem.getActionView();
+        searchView = (androidx.appcompat.widget.SearchView) searchMenuItem.getActionView();
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
         searchMenuItem.expandActionView();
 
-        searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
+        searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 search(query);

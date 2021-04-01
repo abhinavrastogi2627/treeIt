@@ -16,12 +16,13 @@
 
 package com.rozdoum.socialcomponents.model;
 
-import com.google.firebase.database.IgnoreExtraProperties;
+
 import com.rozdoum.socialcomponents.enums.ItemType;
 
 import java.io.Serializable;
+import java.lang.annotation.Annotation;
 
-@IgnoreExtraProperties
+//@IgnoreExtraProperties
 public class Profile implements Serializable, LazyLoading {
 
     private String id;

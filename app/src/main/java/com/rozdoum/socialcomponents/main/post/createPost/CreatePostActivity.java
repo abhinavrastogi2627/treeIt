@@ -16,7 +16,7 @@
 
 package com.rozdoum.socialcomponents.main.post.createPost;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;

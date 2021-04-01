@@ -18,7 +18,7 @@ package com.rozdoum.socialcomponents.main.post;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 import android.text.TextUtils;
 
 import com.rozdoum.socialcomponents.R;

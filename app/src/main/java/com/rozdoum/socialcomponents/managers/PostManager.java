@@ -19,9 +19,12 @@ package com.rozdoum.socialcomponents.managers;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
@@ -158,12 +161,14 @@ public class PostManager extends FirebaseListenersManager {
         addListenerToMap(context, valueEventListener);
     }
 
-    public void loadImageMediumSize(GlideRequests request, String imageTitle, ImageView imageView, @Nullable OnImageRequestListener onImageRequestListener) {
+    public void loadImageMediumSize(RequestManager request, String imageTitle, ImageView imageView, @Nullable OnImageRequestListener onImageRequestListener) {
         int width = Utils.getDisplayWidth(context);
         int height = (int) context.getResources().getDimension(R.dimen.post_detail_image_height);
 
         StorageReference mediumStorageRef = getMediumImageStorageRef(imageTitle);
         StorageReference originalStorageRef = getOriginImageStorageRef(imageTitle);
+
+
 
         ImageUtil.loadMediumImageCenterCrop(request, mediumStorageRef, originalStorageRef, imageView, width, height, new RequestListener<Drawable>() {
             @Override
@@ -185,7 +190,7 @@ public class PostManager extends FirebaseListenersManager {
 
     }
 
-    public void loadImageMediumSize(GlideRequests request, String imageTitle, ImageView imageView) {
+    public void loadImageMediumSize(RequestManager request, String imageTitle, ImageView imageView) {
         loadImageMediumSize(request, imageTitle, imageView, null);
     }
 

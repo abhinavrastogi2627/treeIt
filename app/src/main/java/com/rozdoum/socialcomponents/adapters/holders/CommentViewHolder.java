@@ -18,9 +18,8 @@
 
 package com.rozdoum.socialcomponents.adapters.holders;
 
+
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
@@ -28,8 +27,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.rozdoum.socialcomponents.R;
 import com.rozdoum.socialcomponents.adapters.CommentsAdapter;
 import com.rozdoum.socialcomponents.managers.ProfileManager;
@@ -37,9 +38,10 @@ import com.rozdoum.socialcomponents.managers.listeners.OnObjectChangedListener;
 import com.rozdoum.socialcomponents.model.Comment;
 import com.rozdoum.socialcomponents.model.Profile;
 import com.rozdoum.socialcomponents.utils.FormatterUtil;
-import com.rozdoum.socialcomponents.utils.GlideApp;
+//import com.rozdoum.socialcomponents.utils.GlideApp;
 import com.rozdoum.socialcomponents.utils.ImageUtil;
 import com.rozdoum.socialcomponents.views.ExpandableTextView;
+
 
 /**
  * Created by alexey on 10.05.17.
@@ -106,7 +108,8 @@ public class CommentViewHolder extends RecyclerView.ViewHolder {
                     fillComment(userName, comment, expandableTextView, dateTextView);
 
                     if (obj.getPhotoUrl() != null) {
-                        ImageUtil.loadImage(GlideApp.with(context), obj.getPhotoUrl(), avatarImageView);
+//                        ImageUtil.loadImage(GlideApp.with(context), obj.getPhotoUrl(), avatarImageView);
+                        Glide.with(context).load(obj.getPhotoUrl()).into(avatarImageView);
                     }
                 }
             }

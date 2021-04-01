@@ -22,15 +22,17 @@ import android.annotation.TargetApi;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.view.ActionMode;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+//import androidx.appcompat.widget.DividerItemDecoration;
+//import androidx.appcompat.widget.LinearLayoutManager;
+//import androidx.appcompat.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.transition.Transition;
@@ -49,11 +51,9 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.RequestOptions;
 import com.rozdoum.socialcomponents.R;
 import com.rozdoum.socialcomponents.adapters.CommentsAdapter;
 import com.rozdoum.socialcomponents.controllers.LikeController;
@@ -69,9 +69,8 @@ import com.rozdoum.socialcomponents.model.Comment;
 import com.rozdoum.socialcomponents.model.Post;
 import com.rozdoum.socialcomponents.utils.AnimationUtils;
 import com.rozdoum.socialcomponents.utils.FormatterUtil;
-import com.rozdoum.socialcomponents.utils.GlideApp;
+//import com.rozdoum.socialcomponents.utils.GlideApp;
 import com.rozdoum.socialcomponents.utils.ImageUtil;
-import com.rozdoum.socialcomponents.utils.Utils;
 
 import java.util.List;
 
@@ -369,15 +368,17 @@ public class PostDetailsActivity extends BaseActivity<PostDetailsView, PostDetai
 
     @Override
     public void loadPostDetailImage(String imageTitle) {
-        postManager.loadImageMediumSize(GlideApp.with(this), imageTitle, postImageView, () -> {
+        postManager.loadImageMediumSize(Glide.with(this), imageTitle, postImageView, () -> {
             scheduleStartPostponedTransition(postImageView);
             progressBar.setVisibility(View.GONE);
+
         });
     }
 
     @Override
     public void loadAuthorPhoto(String photoUrl) {
-        ImageUtil.loadImage(GlideApp.with(PostDetailsActivity.this), photoUrl, authorImageView, DiskCacheStrategy.DATA);
+//        ImageUtil.loadImage(GlideApp.with(PostDetailsActivity.this), photoUrl, authorImageView, DiskCacheStrategy.DATA);
+        Glide.with(PostDetailsActivity.this).load(photoUrl).apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.DATA)).into(authorImageView);
     }
 
     @Override

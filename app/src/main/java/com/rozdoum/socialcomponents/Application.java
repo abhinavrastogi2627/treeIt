@@ -16,6 +16,7 @@
  */
 
 package com.rozdoum.socialcomponents;
+import com.rozdoum.socialcomponents.main.interactors.PostInteractor;
 
 import com.rozdoum.socialcomponents.managers.DatabaseHelper;
 

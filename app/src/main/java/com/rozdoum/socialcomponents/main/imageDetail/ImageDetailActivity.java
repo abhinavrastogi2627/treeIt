@@ -19,19 +19,20 @@ package com.rozdoum.socialcomponents.main.imageDetail;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.rozdoum.socialcomponents.R;
 import com.rozdoum.socialcomponents.main.base.BaseActivity;
 import com.rozdoum.socialcomponents.managers.PostManager;
-import com.rozdoum.socialcomponents.utils.GlideApp;
+//import com.rozdoum.socialcomponents.utils.GlideApp;
 import com.rozdoum.socialcomponents.utils.ImageUtil;
 import com.rozdoum.socialcomponents.views.TouchImageView;
 
@@ -100,25 +101,27 @@ public class ImageDetailActivity extends BaseActivity<ImageDetailView, ImageDeta
             actionBar.hide();
         }
     }
+    private SimpleTarget target =  new SimpleTarget<Bitmap>() {
+        @Override
+        public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+            progressBar.setVisibility(View.GONE);
+            touchImageView.setImageBitmap(resource);
+        }
+
+        @Override
+        public void onLoadFailed(@Nullable Drawable errorDrawable) {
+            super.onLoadFailed(errorDrawable);
+            progressBar.setVisibility(View.GONE);
+            touchImageView.setImageResource(R.drawable.ic_stub);
+        }
+    };
 
     private void loadImage(String imageTitle) {
         int maxImageSide = presenter.calcMaxImageSide();
 
-        ImageUtil.loadImageWithSimpleTarget(GlideApp.with(this),
-                PostManager.getInstance(this.getApplicationContext()).getOriginImageStorageRef(imageTitle),
-                new SimpleTarget<Bitmap>(maxImageSide, maxImageSide) {
-            @Override
-            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                progressBar.setVisibility(View.GONE);
-                touchImageView.setImageBitmap(resource);
-            }
+//        ImageUtil.loadImageWithSimpleTarget(GlideApp.with(this),
+//                PostManager.getInstance(this.getApplicationContext()).getOriginImageStorageRef(imageTitle),
 
-            @Override
-            public void onLoadFailed(@Nullable Drawable errorDrawable) {
-                super.onLoadFailed(errorDrawable);
-                progressBar.setVisibility(View.GONE);
-                touchImageView.setImageResource(R.drawable.ic_stub);
-            }
-        });
+        Glide.with(this).load(PostManager.getInstance(this.getApplicationContext()).getOriginImageStorageRef(imageTitle)).into(target);
     }
 }

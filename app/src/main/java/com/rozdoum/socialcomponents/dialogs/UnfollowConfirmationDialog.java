@@ -22,15 +22,16 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.rozdoum.socialcomponents.R;
 import com.rozdoum.socialcomponents.model.Profile;
-import com.rozdoum.socialcomponents.utils.GlideApp;
+//import com.rozdoum.socialcomponents.utils.GlideApp;
 import com.rozdoum.socialcomponents.utils.ImageUtil;
 
 /**
@@ -67,8 +68,7 @@ public class UnfollowConfirmationDialog extends DialogFragment {
 
         confirmationMessageTextView.setText(getString(R.string.unfollow_user_message, profile.getUsername()));
 
-        ImageUtil.loadImage(GlideApp.with(this), profile.getPhotoUrl(), imageView);
-
+        Glide.with(this).load(profile.getPhotoUrl()).into(imageView);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
                 .setNegativeButton(R.string.button_title_cancel, null)

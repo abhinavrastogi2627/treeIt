@@ -18,12 +18,13 @@
 package com.rozdoum.socialcomponents.adapters.holders;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.rozdoum.socialcomponents.Constants;
@@ -39,9 +40,8 @@ import com.rozdoum.socialcomponents.model.Like;
 import com.rozdoum.socialcomponents.model.Post;
 import com.rozdoum.socialcomponents.model.Profile;
 import com.rozdoum.socialcomponents.utils.FormatterUtil;
-import com.rozdoum.socialcomponents.utils.GlideApp;
+//import com.rozdoum.socialcomponents.utils.GlideApp;
 import com.rozdoum.socialcomponents.utils.ImageUtil;
-import com.rozdoum.socialcomponents.utils.Utils;
 
 /**
  * Created by alexey on 27.12.16.
@@ -130,7 +130,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         CharSequence date = FormatterUtil.getRelativeTimeSpanStringShort(context, post.getCreatedDate());
         dateTextView.setText(date);
 
-        postManager.loadImageMediumSize(GlideApp.with(baseActivity), post.getImageTitle(), postImageView);
+        postManager.loadImageMediumSize(Glide.with(baseActivity), post.getImageTitle(), postImageView);
 
         if (post.getAuthorId() != null) {
             profileManager.getProfileSingleValue(post.getAuthorId(), createProfileChangeListener(authorImageView));
@@ -154,7 +154,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
             public void onObjectChanged(Profile obj) {
                 if (obj != null && obj.getPhotoUrl() != null) {
                     if (!baseActivity.isFinishing() && !baseActivity.isDestroyed()) {
-                        ImageUtil.loadImage(GlideApp.with(baseActivity), obj.getPhotoUrl(), authorImageView);
+                        ImageUtil.loadImage(Glide.with(baseActivity), obj.getPhotoUrl(), authorImageView);
                     }
                 }
             }

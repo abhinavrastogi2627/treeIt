@@ -18,10 +18,9 @@ package com.rozdoum.socialcomponents.main.postDetails;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;

@@ -17,14 +17,14 @@
 package com.rozdoum.socialcomponents.views;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
 
 import com.rozdoum.socialcomponents.R;
 import com.rozdoum.socialcomponents.enums.FollowState;
 import com.rozdoum.socialcomponents.utils.LogUtil;
 
-public class FollowButton extends android.support.v7.widget.AppCompatButton {
+public class FollowButton extends androidx.appcompat.widget.AppCompatButton {
     public static final String TAG = FollowButton.class.getSimpleName();
 
     public static final int FOLLOW_STATE = 1;

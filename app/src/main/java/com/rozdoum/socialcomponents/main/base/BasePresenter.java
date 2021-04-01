@@ -19,7 +19,7 @@ package com.rozdoum.socialcomponents.main.base;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;

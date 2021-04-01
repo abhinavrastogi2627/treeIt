@@ -19,11 +19,12 @@ package com.rozdoum.socialcomponents.adapters.holders;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.rozdoum.socialcomponents.R;
 import com.rozdoum.socialcomponents.enums.FollowState;
@@ -32,7 +33,7 @@ import com.rozdoum.socialcomponents.managers.ProfileManager;
 import com.rozdoum.socialcomponents.managers.listeners.OnObjectChangedListener;
 import com.rozdoum.socialcomponents.managers.listeners.OnObjectChangedListenerSimple;
 import com.rozdoum.socialcomponents.model.Profile;
-import com.rozdoum.socialcomponents.utils.GlideApp;
+//import com.rozdoum.socialcomponents.utils.GlideApp;
 import com.rozdoum.socialcomponents.utils.ImageUtil;
 import com.rozdoum.socialcomponents.views.FollowButton;
 
@@ -111,8 +112,10 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         }
 
         if (profile.getPhotoUrl() != null) {
-            ImageUtil.loadImage(GlideApp.with(activity), profile.getPhotoUrl(), photoImageView);
+//            ImageUtil.loadImage(GlideApp.with(activity), profile.getPhotoUrl(), photoImageView);
+            Glide.with(activity).load(profile.getPhotoUrl()).into(photoImageView);
         }
+
     }
 
     public interface Callback {

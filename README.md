@@ -30,7 +30,7 @@ Setup steps
  }
  ```
 
- 3. If you haven't yet specified your app's SHA-1 fingerprint, do so from the Settings page [Settings page](https://console.firebase.google.com/project/_/settings/general/) of the Firebase console. See [Authenticating Your Client](https://developers.google.com/android/guides/client-auth) for details on how to get your app's SHA-1 fingerprint.
+ 3. If you haven't yet specified your app's SHA-1 fingerprint, do so from the Settings page [Settings page](https://console.firebase.google.com/pr of the Firebase console. See [Authenticating Your Client](https://developers.google.com/android/guides/client-auth) for details on how to get your app's SHA-1 fingerprint.
 
  4. Enable the sign in method with google. Go to DEVELOP -> Authentication -> SIGN-IN METHODS. You will see Sign-in providers. Find Google and enable it.  Here you will see Web SDK configuration. Open it and copy Web client ID and put it in the project: /app/src/main/res/values/constants.xml to “google_web_client_id” property.
 
@@ -49,7 +49,7 @@ Setup steps
   - Configure the Facebook Login on the [Facebook for Developers](https://developers.facebook.com/) site. 
   You don't need  add extra lines to the project from the instruction! All necessary data is already there.
   Define OAuth redirect URL you got from the firebase console on the previous step.
-  
+  https://my-blog-app-32be6.firebaseapp.com/__/auth/handler
    - Finally, Put App ID from facebook to the project: /app/src/main/res/values/constants.xml to the “facebook_app_id” property.
 
  6. Init storage. Go to [Firebase console](https://console.firebase.google.com/), DEVELOP->Storage. Follow instructions on this page. At the end you should see the link. It is like “gs://test-9eff4.appspot.com”. Put this link to the project /app/src/main/res/values/constants.xml to “storage_link” property.
