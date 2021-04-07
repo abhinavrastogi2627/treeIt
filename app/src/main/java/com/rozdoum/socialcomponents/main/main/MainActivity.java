@@ -19,6 +19,8 @@ package com.rozdoum.socialcomponents.main.main;
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -27,6 +29,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -48,6 +52,9 @@ import com.rozdoum.socialcomponents.main.search.SearchActivity;
 import com.rozdoum.socialcomponents.model.Post;
 import com.rozdoum.socialcomponents.utils.AnimationUtils;
 
+import java.util.List;
+import java.util.Objects;
+
 public class MainActivity extends BaseActivity<MainView, MainPresenter> implements MainView {
 
     private PostsAdapter postsAdapter;
@@ -59,10 +66,22 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     private ProgressBar progressBar;
     private SwipeRefreshLayout swipeContainer;
 
+    private String getLauncherActivityName(){
+        String activityName = "";
+        final PackageManager pm = getPackageManager();
+        Intent intent = pm.getLaunchIntentForPackage(getPackageName());
+        List<ResolveInfo> activityList = pm.queryIntentActivities(intent,0);
+        if(activityList != null){
+            activityName = activityList.get(0).activityInfo.name;
+        }
+        return activityName;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        System.out.println(".........../....."+getLauncherActivityName());
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -179,7 +198,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
         });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
+        ((SimpleItemAnimator) Objects.requireNonNull(recyclerView.getItemAnimator())).setSupportsChangeAnimations(false);
         recyclerView.setAdapter(postsAdapter);
         postsAdapter.loadFirstPage();
     }

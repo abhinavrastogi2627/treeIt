@@ -17,7 +17,7 @@
   -->
 
 <resources>
-    <string name="storage_link">gs://my-blog-app-32be6.appspot.com</string>
+    <string name="storage_link">gs://treeplant-445f0.appspot.com</string>
     <string name="google_web_client_id">128949690256-4j48fbfq5f0u9tem2v0d29n52s5qpi66.apps.googleusercontent.com</string>
     <string name="facebook_app_id">993782767819554</string>
     <string name="facebook_large_image_url_pattern">https://graph.facebook.com/%1$s/picture?type=large</string>

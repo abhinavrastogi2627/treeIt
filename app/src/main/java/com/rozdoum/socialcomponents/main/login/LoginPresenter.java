@@ -53,8 +53,14 @@ class LoginPresenter extends BasePresenter<LoginView> {
                     view.startCreateProfileActivity();
                 } else {
                     PreferencesUtil.setProfileCreated(context, true);
-                    ProfileInteractor.getInstance(context.getApplicationContext())
-                            .addRegistrationToken(FirebaseInstanceId.getInstance().getToken(), userId);
+                    try {
+                        ProfileInteractor.getInstance(context.getApplicationContext())
+                                .addRegistrationToken(FirebaseInstanceId.getInstance().getToken(), userId);
+                    }
+                    catch(Exception e){
+                        System.out.println("Exception:" +e);
+                    }
+
                 }
 
                 view.hideProgress();
